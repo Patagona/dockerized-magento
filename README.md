@@ -210,3 +210,13 @@ mysql:
   environment:
     MYSQL_ROOT_PASSWORD: <your-mysql-root-user-password>
 ```
+
+### How to install plugin?
+
+- Use ssh to login to amazon magento instance.
+- Move to `dockerized-magento` which is located at home directory.
+- Upload or copy all folders (of plugin) to your Magento site root folder.
+    - Since magento application is dockerized, threfore, we need to upload or copy all folders (of plugin) to `dockerized-magento/web`. 
+    - The whole project is already mounted inside the docker container `dockerizedmagento_installer_1` at /var/www/html (see [docker-compose.yml](docker-compose.yml#L61))
+
+- After uploading is done, log in your Magento administration panel to refresh cache. Go to System/Cache Management. Select all caches and take action “Refresh” then submit.
